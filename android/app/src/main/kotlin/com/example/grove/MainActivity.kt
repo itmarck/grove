@@ -1,0 +1,5 @@
+package com.itmarck.grove
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity: FlutterActivity()
