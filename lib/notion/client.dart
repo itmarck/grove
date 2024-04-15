@@ -1,10 +1,11 @@
 import 'dart:convert';
 
+import 'package:grove/shared/storage/authetication.dart';
 import 'package:http/http.dart';
 
 final tokenUrl = Uri.parse('https://grove.itmarck.com/oauth/token');
 
-Future<String> retrievetoken(String code) async {
+Future<void> retrievetoken(String code) async {
   final body = jsonEncode({'code': code});
   final response = await post(tokenUrl, body: body);
 
@@ -12,5 +13,10 @@ Future<String> retrievetoken(String code) async {
     throw Exception('Failed to retrieve token');
   }
 
-  return jsonDecode(response.body)['access_token'];
+  final bodyJson = jsonDecode(response.body);
+  final accessToken = bodyJson['access_token'];
+
+  if (accessToken != null) {
+    await AuthenticationStorage.save(accessToken);
+  }
 }
