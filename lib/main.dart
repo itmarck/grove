@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:grove/environment.dart';
 import 'package:grove/router.dart';
 
-void main() {
+void main() async {
+  await Environment().load();
+
   runApp(const MyApp());
 }
 

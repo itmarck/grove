@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:grove/environment.dart';
 import 'package:grove/notion/client.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-final authorizationUrl = Uri.parse('');
+final authorizationUrl = Uri.parse(Environment.authorizationUrl);
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -17,7 +18,7 @@ class _LoginScreenState extends State<LoginScreen> {
     if (await canLaunchUrl(authorizationUrl)) {
       await launchUrl(
         authorizationUrl,
-        mode: LaunchMode.externalApplication,
+        mode: LaunchMode.inAppBrowserView,
       );
     } else {}
   }
