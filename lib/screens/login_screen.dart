@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:grove/environment.dart';
 import 'package:grove/notion/client.dart';
+import 'package:grove/router.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 final authorizationUrl = Uri.parse(Environment.authorizationUrl);
@@ -23,6 +24,10 @@ class _LoginScreenState extends State<LoginScreen> {
     } else {}
   }
 
+  _toLogin() {
+    router.go('/home');
+  }
+
   @override
   Widget build(BuildContext context) {
     final code = GoRouterState.of(context).uri.queryParameters['code'] ?? '';
@@ -31,7 +36,7 @@ class _LoginScreenState extends State<LoginScreen> {
       body: SafeArea(
         child: Center(
           child: FutureBuilder(
-            future: code.isEmpty ? null : retrievetoken(code),
+            future: code.isEmpty ? null : retrievetoken(code, _toLogin),
             builder: (context, snapshot) {
               switch (snapshot.connectionState) {
                 case ConnectionState.active:

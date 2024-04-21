@@ -74,7 +74,15 @@ class _HomeScreenState extends State<HomeScreen> {
                         onPressed: () {
                           context.go('/login');
                         },
-                      )
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          AuthenticationStorage.delete().then((_) {
+                            router.go('/login');
+                          });
+                        },
+                        child: const Text('Sign out'),
+                      ),
                     ],
                   );
                 default:

@@ -16,4 +16,8 @@ class AuthenticationStorage {
   static Future<void> save(String token) async {
     await storage.write(key: _key, value: token);
   }
+
+  static Future<void> delete() async {
+    await storage.delete(key: _key);
+  }
 }
