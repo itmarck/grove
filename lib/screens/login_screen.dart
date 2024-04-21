@@ -38,14 +38,35 @@ class _LoginScreenState extends State<LoginScreen> {
                 case ConnectionState.waiting:
                   return const CircularProgressIndicator();
                 case ConnectionState.done:
-                  if (snapshot.hasError) {
-                    return Text('Error: ${snapshot.error}');
-                  }
-                  return Text('Done with token: ${snapshot.data}');
+                  return Text('Error: ${snapshot.error}');
                 case ConnectionState.none:
-                  return FilledButton(
+                  return OutlinedButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(
+                        Colors.transparent,
+                      ),
+                      foregroundColor: MaterialStateProperty.all(
+                        Theme.of(context).colorScheme.onBackground,
+                      ),
+                      shape: MaterialStateProperty.all(
+                        const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                        ),
+                      ),
+                    ),
                     onPressed: _onPressed,
-                    child: const Text('Login with Notion'),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Image.asset(
+                          'assets/notion.png',
+                          width: 24.0,
+                          height: 24.0,
+                        ),
+                        const SizedBox(width: 8.0),
+                        const Text('Connect with Notion'),
+                      ],
+                    ),
                   );
               }
             },
