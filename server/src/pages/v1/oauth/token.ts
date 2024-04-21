@@ -6,6 +6,7 @@ const tokenUrl = "https://api.notion.com/v1/oauth/token";
 
 const clientId = import.meta.env.NOTION_CLIENT_ID;
 const secret = import.meta.env.NOTION_CLIENT_SECRET;
+const redirectUrl = import.meta.env.NOTION_REDIRECT_URL;
 
 const headers = {
   "Content-Type": "application/json",
@@ -47,6 +48,7 @@ async function post(url: string, body: { code: string }) {
     body: encode({
       grant_type: "authorization_code",
       code: body.code,
+      redirect_uri: redirectUrl,
     }),
   });
 
