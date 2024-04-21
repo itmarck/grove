@@ -1,0 +1,73 @@
+{
+  "children": [
+    {
+      "object": "block",
+      "type": "paragraph",
+      "paragraph": {
+        "rich_text": []
+      }
+    },
+    {
+      "object": "block",
+      "type": "paragraph",
+      "paragraph": {
+        "rich_text": []
+      }
+    },
+    {
+      "object": "block",
+      "type": "heading_1",
+      "heading_1": {
+        "rich_text": [
+          {
+            "type": "text",
+            "annotations": {
+              "color": "gray"
+            },
+            "text": {
+              "content": "Grove"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "object": "block",
+      "type": "paragraph",
+      "paragraph": {
+        "rich_text": [
+          {
+            "type": "text",
+            "annotations": {
+              "color": "gray"
+            },
+            "text": {
+              "content": "This is the data used for the Grove application."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "object": "block",
+      "type": "callout",
+      "callout": {
+        "icon": {
+          "type": "emoji",
+          "emoji": "❕"
+        },
+        "rich_text": [
+          {
+            "type": "text",
+            "annotations": {
+              "color": "gray"
+            },
+            "text": {
+              "content": "Please do not edit or remove these databases manually."
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
